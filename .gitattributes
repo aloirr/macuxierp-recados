@@ -1,0 +1,7 @@
+# Repositório de recados do time Macuxi (mesmo desenho da ADR 0035 do aloirr/macuxifdv; ADR 0004 do aloirr/macuxierp).
+# Fim de linha LF em tudo (o coord.mjs grava com "\n").
+* text=auto eol=lf
+# Lidos: cada linha é um id marcado como lido. Dois agentes (ou o PC e o GitHub) marcando ao mesmo tempo
+# juntam as linhas no merge/rebase, sem conflito.
+lidos/*.txt text eol=lf merge=union
+# Anexos citados nos recados do dono do produto (imagens, HTML...): o git detecta binário sozinho.
