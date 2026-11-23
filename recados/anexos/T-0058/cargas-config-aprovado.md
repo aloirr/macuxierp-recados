@@ -28,3 +28,17 @@ Antes do lote, a tela passa por três revisões, com prints de dados fictícios:
 - **Fora:** modo completo, "Dicionário de campos" e "Exportar resumo".
 
 A maquete é referência de layout: `maquete-cargas-config-aprovada.html`, nesta pasta. As cores são as do packages/ui. Os dados da maquete são fictícios.
+
+## Ajuste do Alexandre (R-20261123-145123, 14h51 de Manaus, pelo PO)
+- **Botões da janela Importar:** "Cancelar", "Adicionar" e "Substituir tudo". O "Gravar N" sai.
+- **"Adicionar":** acrescenta e atualiza, sem tirar nada. É o delta de hoje.
+- **"Substituir tudo":** volta a ser a carga completa.
+  - Antes de gravar, abre uma confirmação: é preciso digitar "autorizo substituir tudo".
+  - O que não vier no arquivo é INATIVADO, nunca apagado.
+  - O que está em uso em pedido, título ou nota fica inativo e é mantido.
+  - A inativação vai ao FDV pela integração e passa pelo limite de 30% do FDV.
+- **"Zerar dados":** a confirmação passa a ser digitar "autorizo zerar os dados", no lugar do código da empresa (RN-CAD-10 ajustada).
+- **Nos dois casos:**
+  - a comparação ignora maiúsculas e o ponto final;
+  - o botão fica desligado até a frase bater.
+- **Revisão:** corretor, marca e designer-ux, como já combinado.
