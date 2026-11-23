@@ -1,0 +1,33 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
+*{box-sizing:border-box}body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:#F6F4EF;color:#16202A;font-size:14px}
+.top{background:#1E3350;color:#fff;height:52px;display:flex;align-items:center;padding:0 24px;gap:16px}.top b{font-size:18px}.top .sp{flex:1}
+.wrap{max-width:980px;margin:24px auto;padding:0 16px}.crumb{color:#7A8593;font-size:13px;margin-bottom:6px}h1{margin:0 0 16px;font-size:24px}
+.tabs{display:flex;gap:4px;border-bottom:1px solid #C9CED5;margin-bottom:18px}.tab{padding:10px 16px;color:#7A8593;font-weight:600}.tab.on{color:#1E3350;border-bottom:3px solid #F59A52}
+.head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.head h2{margin:0;font-size:18px}
+.btn{border:1px solid #C9CED5;background:#fff;border-radius:10px;padding:8px 14px;font-weight:600;font-size:13px}.btn.pri{background:#1E3350;color:#fff}.btn.dan{color:#C2540A;border-color:#F59A52}.btn:disabled{opacity:.45}
+.list{background:#fff;border:1px solid #ECEEF1;border-radius:16px}.row{display:flex;align-items:center;gap:14px;padding:12px 16px;border-bottom:1px solid #ECEEF1}
+.n{width:26px;height:26px;border-radius:50%;background:#1E3350;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.nm{width:210px;font-weight:600}.st{flex:1;font-size:13px}.chip{padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600}
+.chip.ok{background:#E2F1EA;color:#1d7a4f}.chip.pend{background:#ECEEF1;color:#7A8593}.chip.bloq{background:#FFF1D6;color:#C2540A}
+.lk{color:#1E3350;font-weight:600;font-size:13px;text-decoration:underline}
+.ov{position:fixed;inset:0;background:rgba(22,32,42,.45);display:flex;justify-content:center;padding-top:70px}
+.md{background:#fff;border-radius:16px;width:600px;padding:22px 24px}.file{border:1.5px dashed #C9CED5;border-radius:12px;padding:14px;display:flex;gap:12px}
+.box{flex:1;border-radius:12px;padding:10px 14px}.box b{font-size:22px;display:block}.box.g{background:#E2F1EA}.box.r{background:#FDE8E6}
+.err div{padding:8px 12px;border-bottom:1px solid #ECEEF1}.err span{color:#7A8593;width:70px;display:inline-block}
+</style></head><body>
+<div class="top"><b>Maçuxi</b><span>Config da plataforma</span><span class="sp"></span><a>Superadmin</a></div>
+<div class="wrap"><div class="crumb">Empresas > AM2808</div><h1>Empresa AM2808</h1>
+<div class="tabs"><div class="tab">Dados</div><div class="tab">Módulos e plano</div><div class="tab">Integração FDV</div><div class="tab on">Cargas</div></div>
+<div class="head"><h2>Cargas</h2><button class="btn dan">Zerar dados</button></div>
+<div class="list">
+<div class="row"><div class="n">1</div><div class="nm">Filiais</div><div class="st"><span class="chip ok">Carregado</span> 23/11 14:39 · 1 registro</div><a class="lk">Modelo</a><button class="btn">Importar</button></div>
+<div class="row"><div class="n">5</div><div class="nm">Produtos</div><div class="st"><span class="chip bloq">2 com erro</span> 23/11 14:44 · 44 registros</div><a class="lk">Modelo</a><button class="btn">Importar</button></div>
+<div class="row"><div class="n">6</div><div class="nm">Unidades (opcional)</div><div class="st"><span class="chip pend">Não carregado</span></div><a class="lk">Modelo</a><button class="btn">Importar</button></div>
+<div class="row"><div class="n">10</div><div class="nm">Endereços</div><div class="st" style="color:#C2540A">Carregue antes: Clientes</div><a class="lk">Modelo</a><button class="btn" disabled>Importar</button></div>
+</div></div>
+<div class="ov"><div class="md"><h3>Importar Produtos</h3>
+<div class="file"><button class="btn">Escolher arquivo</button><span>produto.csv · 46 linhas</span></div>
+<div style="display:flex;gap:10px;margin:12px 0"><div class="box g"><b>44</b>prontas para gravar</div><div class="box r"><b>2</b>com erro (ficam de fora)</div></div>
+<div class="err"><div><span>Linha 46</span>O NCM 4202.22.10 exige CEST: preencha a coluna cest.</div></div>
+<a class="lk">Baixar erros</a><div style="text-align:right;margin-top:16px"><button class="btn">Cancelar</button> <button class="btn pri">Gravar 44</button></div>
+</div></div></body></html>
