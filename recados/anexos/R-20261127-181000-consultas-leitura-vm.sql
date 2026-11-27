@@ -1,0 +1,12 @@
+-- Consultas SÓ DE LEITURA e só de contagem, sem dado pessoal (27/11/2026, 18h10 Manaus).
+-- Fecham: T-0057 (corpo nulo dos 12 lotes da Thathyany) e a reentrega do cnpj_alterado da 0077 (v0.3.25).
+-- Como rodar, na VM: cd /opt/macuxierp; source scripts/deploy/producao/comum.sh;
+--   dc --profile ferramentas run --rm -T psql psql   e colar este bloco inteiro.
+-- Esperado: (1) 12 achados, 12 nulos, 0 não nulos, 12 concluídos;
+--           (2a) sem_consumo=0, nao_publicados=0, falha_terminal=0; (2b) cnpj_igual = filiais_padrao.
+-- Devolver só os números ao Gerente Sênior.
+BEGIN READ ONLY;
+SELECT count(*) AS lotes_achados, count(*) FILTER (WHERE corpo IS NULL) AS corpo_nulo, count(*) FILTER (WHERE corpo IS NOT NULL) AS corpo_nao_nulo, count(*) FILTER (WHERE estado IN ('concluido','concluido_com_erros')) AS concluidos, count(*) FILTER (WHERE estado NOT IN ('concluido','concluido_com_erros')) AS outros_estados FROM cadastros.entrada_lote WHERE id IN ('667d3455-3f43-499f-ae44-4ebf5e2c7d3c','08b82da0-65e2-4a7b-9ff8-00139cc5479e','7736edb1-7ee5-4fb4-80f4-44aba0540ba3','3c8b5fa7-e564-4093-9a3b-b686a9239f0b','9112cd8a-49d7-4a42-be82-c34f51413f14','083b3191-729c-4552-af7b-43f6e609f09e','d52b11b3-df07-43cf-b360-a60f8922615c','a8468554-ee3f-480a-ba91-79dc80c4b621','91979e51-310d-4085-a4ea-4a59473a0fa5','69e4b395-8751-496e-bbd2-a78a896419ed','51b389ba-4248-46b3-9752-943da262fc88','a24002ea-c9b2-4660-931f-823a1797b44e');
+SELECT count(*) AS eventos, count(*) FILTER (WHERE e.payload ->> 'request_id' LIKE 'migracao-0077:%') AS da_carga_0077, count(c.evento_id) AS com_consumo_cadastros, count(*) - count(c.evento_id) AS sem_consumo, count(*) FILTER (WHERE e.publicado_em IS NULL) AS nao_publicados, count(*) FILTER (WHERE e.erro LIKE 'falhou:%') AS falha_terminal FROM plataforma.evento e LEFT JOIN plataforma.evento_consumido c ON c.evento_id = e.id AND c.consumidor = 'cadastros.cnpj-empresa' WHERE e.nome = 'core.empresa.cnpj_alterado@1';
+SELECT count(*) AS filiais_padrao, count(*) FILTER (WHERE f.cnpj = e.cnpj) AS cnpj_igual, count(*) FILTER (WHERE f.cnpj IS NULL) AS cnpj_vazio, count(*) FILTER (WHERE f.cnpj IS NOT NULL AND f.cnpj <> e.cnpj) AS cnpj_diferente, count(*) FILTER (WHERE e.id IS NULL) AS sem_empresa FROM cadastros.filial f JOIN plataforma.tenant t ON t.id = f.tenant_id AND t.situacao = 'ativo' AND t.id <> plataforma.tenant_referencia() LEFT JOIN core.empresa e ON e.tenant_id = f.tenant_id AND e.deleted_at IS NULL WHERE f.padrao AND f.deleted_at IS NULL;
+ROLLBACK;
