@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Simulação · Config · Empresa</title>
+<style>
+:root{--azul:#1c2b45;--fundo:#f6f4ef;--borda:#d9d6cf;--texto:#1c2b45;--sub:#5d6575;--ok:#e3f1e8;--okt:#21663d;--campo:34px;--gap:12px;--pad:16px;--raio:8px;--f:13px;--rot:11.5px}
+*{box-sizing:border-box}body{margin:0;font:var(--f)/1.35 "Segoe UI",system-ui,Arial,sans-serif;color:var(--texto);background:var(--fundo)}
+.topo{display:flex;align-items:center;gap:16px;background:var(--azul);color:#fff;padding:0 24px;height:48px}.topo b{font-size:15px}.topo .mn{opacity:.75;font-size:12.5px}
+.pg{padding:16px 24px 72px}.cab{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:12px}.cab h1{font-size:20px;margin:0}.cab .meta{color:var(--sub);font-size:12.5px}
+.selo{display:inline-flex;gap:6px;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;background:var(--ok);color:var(--okt)}
+.cab .acoes{margin-left:auto;display:flex;gap:8px}
+.btn{height:var(--campo);padding:0 14px;border:1px solid var(--borda);background:#fff;border-radius:6px;font:600 12.5px "Segoe UI",Arial;color:var(--texto)}
+.btn.p{background:var(--azul);color:#fff}.btn.r{color:#a3271c;border-color:#e7c3bf}
+.abas{display:flex;gap:24px;border-bottom:1px solid var(--borda);margin-bottom:12px}.abas a{padding:8px 0;color:var(--sub);text-decoration:none;font-weight:600}.abas a.at{color:var(--texto);border-bottom:3px solid var(--azul)}
+.g{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.card{background:#fff;border:1px solid var(--borda);border-radius:var(--raio);padding:12px var(--pad) var(--pad)}
+.card h2{font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--sub);margin:0 0 10px;display:flex;gap:8px}.card h2 .lk{margin-left:auto;text-transform:none;color:var(--azul);font-size:12px}
+.f{display:flex;flex-direction:column;gap:3px;min-width:0}.f label{font-size:var(--rot);color:var(--sub);font-weight:600}
+.f input{height:var(--campo);border:1px solid var(--borda);border-radius:6px;padding:0 10px;font:var(--f) "Segoe UI",Arial;width:100%}
+.f .ro{height:var(--campo);display:flex;align-items:center;gap:8px;font-weight:600}
+.s1{grid-column:span 1}.s2{grid-column:span 2}.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s12{grid-column:span 12}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{border:1px solid var(--borda);border-radius:6px;padding:4px 8px;font-size:12px;background:#faf9f6}.chip b{font-family:Consolas,monospace;margin-right:4px}
+.mods{display:flex;flex-direction:column;gap:6px}.mods label{display:flex;gap:6px;font-weight:600}
+.rodape{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--borda);padding:8px 24px;display:flex;align-items:center}.rodape .dir{margin-left:auto;display:flex;gap:8px}
+</style></head><body>
+<div class="topo"><b>MACUXI ERP</b><span class="mn">Config · Empresas</span><span style="margin-left:auto;font-size:12.5px">superadmin</span></div>
+<div class="pg">
+ <div class="cab"><h1>EMPRESA EXEMPLO COMÉRCIO LTDA</h1><span class="meta">AM0000 · criada em 22/11/2026 08:41</span><span class="selo">● Ativa</span><span class="selo">✓ Igual à Receita · consultada 27/11 10:10</span>
+  <div class="acoes"><button class="btn">Atualizar pela Receita</button><button class="btn r">Suspender empresa</button></div></div>
+ <div class="abas"><a class="at" href="#">Empresa</a><a href="#">Integração</a><a href="#">Dados</a></div>
+ <div class="g">
+  <div class="card s12"><h2>Identificação</h2><div class="g">
+   <div class="f s5"><label>Razão social</label><input value="EMPRESA EXEMPLO COMÉRCIO LTDA"></div>
+   <div class="f s3"><label>Nome fantasia</label><input placeholder="—"></div>
+   <div class="f s2"><label>CNPJ</label><div class="ro">00.000.000/0001-00 <a href="#">trocar</a></div></div>
+   <div class="f s2"><label>Inscrição estadual</label><input placeholder="Números ou ISENTO"></div></div></div>
+  <div class="card s12"><h2>Endereço</h2><div class="g">
+   <div class="f s1"><label>CEP</label><input value="69000-000"></div><div class="f s4"><label>Logradouro</label><input></div>
+   <div class="f s1"><label>Número</label><input></div><div class="f s2"><label>Complemento</label><input></div>
+   <div class="f s2"><label>Bairro</label><input value="CENTRO"></div>
+   <div class="f s2"><label>Município · UF</label><div class="ro">Manaus · AM <small>IBGE 1302603</small></div></div></div></div>
+  <div class="card s5"><h2>Atividades (CNAE)<span class="lk">editar</span></h2><div class="chips">
+   <span class="chip" style="border-color:#1c2b45"><b>4781-4/00</b>Varejo de vestuário · principal</span><span class="chip"><b>4751-2/01</b>Equip. de informática</span>
+   <span class="chip"><b>7319-0/02</b>Promoção de vendas</span><span class="chip"><b>8599-6/04</b>Treinamento profissional</span></div></div>
+  <div class="card s3"><h2>Contato</h2><div class="g"><div class="f s12"><label>E-mail</label><input placeholder="vazio mantém o salvo"></div>
+   <div class="f s12"><label>Telefone (DDD + número)</label><input placeholder="vazio mantém o salvo"></div></div></div>
+  <div class="card s2"><h2>Módulos</h2><div class="mods"><label><input type="checkbox" checked> Cadastros</label><label><input type="checkbox" checked> Pedidos</label>
+   <label><input type="checkbox" checked> Faturamento</label><label><input type="checkbox" checked> Fiscal</label><label><input type="checkbox" checked> Integração FDV</label></div></div>
+  <div class="card s2"><h2>1º administrador</h2><div class="f"><label>E-mail</label><span>ad****@exemplo.com <a href="#">mostrar</a></span><span class="selo" style="align-self:flex-start">Ativo</span></div>
+   <button class="btn" style="margin-top:8px">Redefinir senha</button></div>
+ </div></div>
+<div class="rodape"><span style="color:#5d6575">Nenhuma alteração pendente</span><div class="dir"><button class="btn">Descartar</button><button class="btn p">Salvar</button></div></div>
+</body></html>
